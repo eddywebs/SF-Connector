@@ -13,7 +13,7 @@ Salesforce API
 """
 class SalesforceApi:
 
-    def __init__(self,environment,debug=0):
+    def __init__(self, environment, debug=0):
         self.username = environment['username']
         self.password = environment['password']
         self.securityToken = environment['securityToken']
@@ -116,13 +116,13 @@ class SalesforceApi:
         if self.debug:
             print ("[DEBUG] eventLogFile >> ")
             print (rawResponse)
-            print (rawResponse.content)
+            #print (rawResponse.content)
 
         # if self.log:
         #     w = FileWriter('log', eventFileId)
         #     w.writeFile(rawResponse.content)
 
-        w = FileWriter(eventLogFile)
+        w = FileWriter(self.debug, eventLogFile)
         w.writeFile(rawResponse.content)
 
         return rawResponse
